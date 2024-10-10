@@ -19,14 +19,14 @@ awk -F, '$4 == 2 && $13 == "S" {print $0}' $input_file >> $output_file_4a
 # echo "Extracted $(wc -l < $output_file_4a) entries (including header) to $output_file_4a"
 
 # Display the first few lines of the output file
-echo "\nFirst few lines of the extracted data:"
+echo -e "\nFirst few lines of the extracted data:\n"
 head -n 5 $output_file_4a
 
 
 # Question 4(B)
 
 # Displaying first few lines of the dataset
-echo "First 5 entries of the original dataset."
+echo -e "\nFirst 5 entries of the original dataset.\n"
 head -n 6 $input_file
 
 # Modifying gender entries in the dataset.
@@ -39,14 +39,14 @@ awk -F, 'BEGIN {OFS=","}
     }' $input_file > $output_file_4b
 
 # Display the modified entries of the dataset.
-echo "\nModified Dataset(First 5 entries)."
+echo -e "\nModified Dataset(First 5 entries).\n"
 head -n 6 $output_file_4b
 
 # Question 4(C)
 
 input_file_2="titanic_filtered-4a.csv"
 
-echo "Calculating average age from $input_file_2..."
+echo -e "\nCalculating average age from $input_file_2..."
 
 avg_age=$(awk -F, '
     NR > 1 {  # Skip the header row
